@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Young+Serif&display=swap");
 
 // Variables
 $primary-color: hsl(217, 54%, 11%);
@@ -10,171 +10,173 @@ $Cyan-400: hsl(178, 100%, 50%);
 $border-radius: 8px;
 $transition: all 0.3s ease;
 
-
 // Mixins
 @mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 // Reset & Base Styles
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    @include flex-center;
-    font-family: "Outfit", sans-serif;
-    background-color: $primary-color;
-    color: $Blue-500;
-    line-height: 1.6;
-    height: 100vh;
-    font-size: clamp(16px, 1.5vw, 18px);
+  @include flex-center;
+  justify-content: center;
+  font-family: "Outfit", sans-serif;
+  background-color: $primary-color;
+  color: $Blue-500;
+  line-height: 1.6;
+  height: 100vh;
+  font-size: clamp(16px, 1.5vw, 18px);
 }
 
 // Styles
 .container {
-    background-color: $secondary-color;
-    border-radius: $border-radius;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    max-width: 375px;
-    @include flex-center;
-    min-height: 90vh;
-    padding: 2rem;
+  background-color: $secondary-color;
+  border-radius: $border-radius;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  max-width: 375px;
+  @include flex-center;
+  max-height: 90vh;
+  padding: 1.8rem;
 }
 
 .card {
-    background-color: $secondary-color;
-    border-radius: $border-radius;
-    overflow: hidden;
-    width: 100%;
+  background-color: $secondary-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  width: 100%;
 }
 .card-image {
-    position: relative;
-    background-color: $Cyan-400;
-    border-radius: $border-radius  $border-radius;
+  position: relative;
+  background-color: $Cyan-400;
+  border-radius: $border-radius $border-radius;
+  overflow: hidden;
+  margin-bottom: 1rem;
+
+  .view-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+    transition: $transition;
+  }
+  &:hover .view-icon {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .nft-image {
+    width: 100%;
+    display: block;
+    border-radius: $border-radius $border-radius;
+    transition: $transition;
     overflow: hidden;
+  }
+  &:hover .nft-image {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+// Card Content
+.card-content {
+  .nft-title {
+    font-size: 1.5rem;
+    color: $WHITE;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    &:hover {
+      color: hsl(178, 100%, 50%);
+    }
+  }
+
+  .nft-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .nft-details {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 1rem;
 
-    .view-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 64px;
-        height: 64px;
-        opacity: 0;
-        transition: $transition;
-    }
-    &:hover .view-icon {
-        opacity: 1;
-        cursor: pointer;
-    }
-    .nft-image {
-        width: 100%;
-        display: block;
-        border-radius: $border-radius  $border-radius;
-        transition: $transition;
-        overflow: hidden;
-    }
-    &:hover .nft-image {
-        opacity: 0.8;
-        cursor: pointer;
-    }
-}
-.card-content {
-    padding: 2rem;
+    .nft-price,
+    .nft-time {
+      display: flex;
+      align-items: center;
 
-    .nft-title {
-        font-size: 1.5rem;
-        color: $WHITE;
-        margin-bottom: 0.75rem;
-        cursor: pointer;
-        &:hover {
-            color: hsl(178, 100%, 50%);
-        }
+      img {
+        margin-right: 0.75rem;
+      }
     }
-
-    .nft-description {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+    .nft-price {
+      color: $Cyan-400;
     }
+  }
 
-    .nft-details {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-
-        .nft-price,
-        .nft-time {
-            display: flex;
-            align-items: center;
-
-            img {
-                margin-right: 0.75rem;
-            }
-        }
-    }
-
-    .nft-creator {
-        display: flex;
-        align-items: center;
-        border-top: 1px solid $line-color;
-        padding-top: 1rem;
-
-        .creator-avatar {
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            margin-right: 1rem;
-        }
-
-        .creator-name {
-            color: $WHITE;
-            font-size: 0.875rem;
-            &:hover {
-                color: hsl(178, 100%, 50%);
-                cursor: pointer;
-            }
-        }
-    }
-}
-.attribution {
-    font-size: 0.75rem;
-    text-align: center;
-    color: $line-color;
+  .nft-creator {
     display: flex;
-    flex-wrap: wrap;
-    a {
-        color: $line-color;
-        text-decoration: none;
+    align-items: center;
+    justify-self: flex-end;
+    border-top: 1px solid $line-color;
+    padding-top: 1rem;
 
-        &:hover {
-            text-decoration: underline;
-            color: $Blue-500;
-        }
+    .creator-avatar {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 1rem;
     }
+    .creator-name {
+      color: $WHITE;
+      font-size: 0.875rem;
+      &:hover {
+        color: hsl(178, 100%, 50%);
+        cursor: pointer;
+      }
+    }
+  }
+}
+// Attribution
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+  color: $line-color;
+  display: flex;
+  flex-wrap: wrap;
+  a {
+    color: $line-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      color: $Blue-500;
+    }
+  }
 }
 
 // Responsive Design
 @media (max-width: 375px) {
-    .container {
-        width: 90%;
-        padding: 2rem 2rem;
-    }
+  .container {
+    width: 90%;
+    height: fit-content;
+  }
 
-    .card-content {
-        padding: 1rem;
-        .nft-title {
-            font-size: 1.25rem;
-        }
-        .nft-description {
-            font-size: 0.9rem;
-        }
+  .card-content {
+    .nft-title {
+      font-size: 1.25rem;
     }
+    .nft-description {
+      font-size: 0.9rem;
+    }
+  }
 }

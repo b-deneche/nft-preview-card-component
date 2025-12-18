@@ -8,8 +8,9 @@
 body {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
+  justify-content: center;
   font-family: "Outfit", sans-serif;
   background-color: hsl(217, 54%, 11%);
   color: hsl(215, 51%, 70%);
@@ -26,10 +27,10 @@ body {
   max-width: 375px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
-  min-height: 90vh;
-  padding: 2rem;
+  max-height: 90vh;
+  padding: 1.8rem;
 }
 
 .card {
@@ -72,9 +73,6 @@ body {
   cursor: pointer;
 }
 
-.card-content {
-  padding: 2rem;
-}
 .card-content .nft-title {
   font-size: 1.5rem;
   color: hsl(0, 0%, 100%);
@@ -102,9 +100,13 @@ body {
 .card-content .nft-details .nft-time img {
   margin-right: 0.75rem;
 }
+.card-content .nft-details .nft-price {
+  color: hsl(178, 100%, 50%);
+}
 .card-content .nft-creator {
   display: flex;
   align-items: center;
+  justify-self: flex-end;
   border-top: 1px solid hsl(215, 32%, 27%);
   padding-top: 1rem;
 }
@@ -142,10 +144,8 @@ body {
 @media (max-width: 375px) {
   .container {
     width: 90%;
-    padding: 2rem 2rem;
-  }
-  .card-content {
-    padding: 1rem;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .card-content .nft-title {
     font-size: 1.25rem;
