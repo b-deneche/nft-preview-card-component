@@ -106,7 +106,7 @@ body {
 .card-content .nft-creator {
   display: flex;
   align-items: center;
-  justify-self: flex-end;
+  justify-self: flex-start;
   border-top: 1px solid hsl(215, 32%, 27%);
   padding-top: 1rem;
 }
