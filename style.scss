@@ -113,6 +113,7 @@ body {
     .nft-time {
       display: flex;
       align-items: center;
+      font-size: smaller;
 
       img {
         margin-right: 0.75rem;
@@ -120,6 +121,7 @@ body {
     }
     .nft-price {
       color: $Cyan-400;
+      font-size: smaller;
     }
   }
 
@@ -135,6 +137,7 @@ body {
       width: 40px;
       height: 40px;
       margin-right: 1rem;
+      border: 1px solid $WHITE;
     }
     .creator-name {
       color: $WHITE;
